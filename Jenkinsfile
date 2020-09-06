@@ -1,11 +1,11 @@
 node {
     def app
-
-    stage('Clone repository') {
-        /* Cloning the Repository to our Workspace */
-
-        checkout scm
+	
+   stage('Initialize'){
+        def dockerHome = tool 'Docker'
+        env.PATH = "${dockerHome}/bin:${env.PATH}"
     }
+    
 
     stage('Build image') {
         /* This builds the actual image */
